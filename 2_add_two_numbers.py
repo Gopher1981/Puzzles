@@ -14,12 +14,42 @@ from random import randint
 class Solution:
     def addTwoNumbers(l1, l2):
         print("Input: l1 = ",l1,", l2 = ",l2)
-        l1.reverse()
-        l2.reverse()
-        l1a = int(''.join(str(e) for e in l1))
-        l2a = int(''.join(str(e) for e in l2))
+        list1 = list(l1)
+        list2 = list(l2)
+        list1.reverse()
+        list2.reverse()
+        l1a = int(''.join(str(e) for e in list1))
+        l2a = int(''.join(str(e) for e in list2))
         answer = l1a + l2a
-        print("Output: ",answer)
+        answerList = [int(x) for x in str(answer)]
+        print("Reversing Output: ",answerList)
+
+    def altAddTwoNumbers(l1, l2):
+        # print("Input: l1 = ",l1,", l2 = ",l2)
+        answer = []
+        tmpAnswer = 0
+        nextAnswer = 0
+        for x in range(max(len(l1), len(l2))):
+            try:
+                tmpAnswer = l1[x] + l2[x]
+            except:
+                try:
+                    tmpAnswer = l1[x]
+                except:
+                    tmpAnswer = l2[x]
+            tmpAnswer += nextAnswer
+            if tmpAnswer > 9:
+                nextAnswer = 1
+                tmpAnswer -= 10
+                answer.insert(0,tmpAnswer)
+            elif tmpAnswer <= 9:
+                nextAnswer = 0
+                answer.insert(0,tmpAnswer)
+        if answer[0] == 0:
+            del answer[0]
+        if nextAnswer == 1:
+            answer.insert(0,tmpAnswer)
+        print("Alternate Output: ",answer)
 
 l1 = []
 l2 = []
@@ -31,3 +61,4 @@ for x in range (j):
     l2.append(randint(0,9))
 
 Solution.addTwoNumbers(l1,l2)
+Solution.altAddTwoNumbers(l1,l2)
