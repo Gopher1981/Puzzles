@@ -20,10 +20,11 @@ def cons(a, b):
     return pair
 
 def car(pair):
-    pass
+    print("car : ",pair)
+    print(type(pair))
 
 def cdr(pair):
-    pass
+    print("cdr : ",pair)
 
 car(cons(3, 4))
 cdr(cons(3, 4))

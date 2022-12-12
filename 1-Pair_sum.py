@@ -1,6 +1,10 @@
 """
-from a random list. Check if two seperate numbers
-make the sum of another number
+Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
+
+For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
+
+Bonus: Can you do this in one pass?
+
 """
 
 
@@ -28,3 +32,5 @@ for x in range (randint(4,10)):
 k = randint(8,30)
 
 solution.isSumToK(nums,k)
+
+# Complete
